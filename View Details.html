@@ -68,7 +68,7 @@
 
   <section>
     <h1>Book this tour</h1>
-    <form action="booknow.html" method="POST">
+    <form action="booknow.html"method="POST">
       <input type="hidden" name="tourName" value="<%= tour.name %>">
       <label for="userName">Your Name</label>
       <input type="text" name="userName" required>
@@ -76,8 +76,9 @@
       <input type="email" name="userEmail" required>
       <label for="numberOfPeople">Number of People</label>
       <input type="number" name="numberOfPeople" required>
-      <button type="submit">Pay Now</button>
+      <button <a href="booknow.html">Pay Now</button></a>
     </form>
+    
   </section>
 <style>
 
