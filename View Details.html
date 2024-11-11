@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Demo Website</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      /* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #22222257;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #3b3d3d;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+    </style>
+        <!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="navbar">
+  <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="Search.html"><i class="fa fa-fw fa-search"></i> Search</a>
+  <a href="Contact.html"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  <a href="Login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+</div>
+
+    
+    </head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Booking Confirmation</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Booking Confirmation </h1>
+  </header>
+
+  <section>
+    <h1>Book this tour</h1>
+    <form action="booknow.html" method="POST">
+      <input type="hidden" name="tourName" value="<%= tour.name %>">
+      <label for="userName">Your Name</label>
+      <input type="text" name="userName" required>
+      <label for="userEmail">Your Email</label>
+      <input type="email" name="userEmail" required>
+      <label for="numberOfPeople">Number of People</label>
+      <input type="number" name="numberOfPeople" required>
+      <button type="submit">Pay Now</button>
+    </form>
+  </section>
+<style>
+
+
+
+header {
+  background-color: #0073e6;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+form label, form input, form button {
+  display: block;
+  margin: 10px 0;
+}
+
+
+
+button{
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #1e1f20;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .booking-section a:hover {
+            background-color: #2f2f30;
+        }
+
+</style>
+<script>
+    const mongoose = require('mongoose');
+
+const bookingSchema = new mongoose.Schema({
+  tourName: String,
+  userName: String,
+  userEmail: String,
+  bookingDate: { type: Date, default: Date.now },
+  numberOfPeople: Number
+});
+
+module.exports = mongoose.model('Booking', bookingSchema);
+
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.render('index', { title: 'Home' });
+});
+
+router.get('/tour', (req, res) => {
+  const tourData = {
+    name: 'Grand Canyon Adventure',
+    description: 'Explore the beautiful Grand Canyon...',
+    price: 500
+  };
+  res.render('tour', { tour: tourData });
+});
+
+module.exports = router;
+
+
+</script>
+<style>
+
+  .footer {
+    padding: 1em;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+</style>
+<footer class="footer">
+  <p>&copy; 2024 Demo Website. All Rights Reserved.</p>
+</footer>  
+
+<script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
